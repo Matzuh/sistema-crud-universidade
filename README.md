@@ -10,12 +10,14 @@ Este é um projeto prático de um sistema de cadastro e gerenciamento de alunos 
 
 ## 🚀 Como Rodar o Aplicativo
 
-### 1. Inicializar o Backend
-Abra o seu terminal, entre na pasta do backend com o comando `cd sistema-crud` e suba o container executando `docker compose up --build`.
+### 1. Inicializar o Backend (IntelliJ)
+- Abra o projeto no IntelliJ.
+- Certifique-se de vincular o arquivo `pom.xml` como projeto Maven.
+- Abra a classe `SistemaCrudApplication.java` e clique no botão de **Play verde** para iniciar o Spring Boot.
 > O servidor backend ficará disponível em: http://localhost:8080
 
-### 2. Inicializar o Frontend
-Abra um segundo terminal na raiz do projeto, acesse a pasta do front com o comando `cd sistema-frontend`, instale os pacotes com `npm install` e inicie o painel com `npm run dev`.
+### 2. Inicializar o Frontend (Terminal)
+Abra o terminal na raiz do projeto, acesse a pasta do front com o comando `cd sistema-frontend`, instale os pacotes com `npm install` e inicie o painel com `npm run dev`.
 > A interface visual abrirá em: http://localhost:5173
 
 ---
@@ -28,4 +30,4 @@ Abra um segundo terminal na raiz do projeto, acesse a pasta do front com o coman
 ---
 
 ## 👥 Desenvolvedor
-- **Matheus Henrique Gonçalves** - Engenharia de Software / Análise e Desenvolvimento de Sistemas (ADS)
+- **Matheus Henrique Gonçalves** - Engenharia de Software / Análise e Desenvolvimento de Sistemas (ADS).
