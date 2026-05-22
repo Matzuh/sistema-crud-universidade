@@ -1,12 +1,10 @@
 <template>
   <div class="container mt-5">
-    <!-- Cabeçalho Principal -->
     <div class="p-4 mb-4 bg-dark text-white rounded shadow-sm">
       <h1 class="mb-0">🏫 Sistema Universitário - Painel de Controle</h1>
       <p class="mb-0 text-muted">Integração Real-time com API REST Spring Boot</p>
     </div>
 
-    <!-- Abas de Navegação (Tabs) -->
     <ul class="nav nav-tabs mb-4">
       <li class="nav-item">
         <button class="nav-link font-weight-bold text-uppercase" :class="{ active: abaAtiva === 'estudantes' }" @click="abaAtiva = 'estudantes'">
@@ -20,9 +18,7 @@
       </li>
     </ul>
 
-    <!-- ================= ABAS DE ESTUDANTES ================= -->
     <div v-if="abaAtiva === 'estudantes'" class="row">
-      <!-- Formulário de Cadastro - Aluno -->
       <div class="col-md-4">
         <div class="card shadow-sm mb-4">
           <div class="card-header bg-primary text-white font-weight-bold">
@@ -69,7 +65,6 @@
         </div>
       </div>
 
-      <!-- Tabela de Alunos Cadastrados -->
       <div class="col-md-8">
         <div class="card shadow-sm">
           <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
@@ -113,9 +108,7 @@
       </div>
     </div>
 
-    <!-- ================= ABAS DE PROFESSORES ================= -->
     <div v-if="abaAtiva === 'professores'" class="row">
-      <!-- Formulário de Cadastro - Professor -->
       <div class="col-md-4">
         <div class="card shadow-sm mb-4">
           <div class="card-header bg-info text-white font-weight-bold">
@@ -166,7 +159,6 @@
         </div>
       </div>
 
-      <!-- Tabela de Professores Cadastrados -->
       <div class="col-md-8">
         <div class="card shadow-sm">
           <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
@@ -258,14 +250,12 @@ export default {
     this.buscarProfessores()
   },
   methods: {
-    // Formata a exibição baseada estritamente nos atributos do seu Address.java
     formatarEndereco(addresses) {
       if (!addresses || addresses.length === 0) return 'Não informado'
       const addr = addresses[0]
       return `${addr.street} - ${addr.city}/${addr.state} (CEP: ${addr.zipCode})`
     },
 
-    // ================= MÉTODOS DE ESTUDANTES =================
     async buscarAlunos() {
       try {
         const response = await axios.get(API_STUDENTS)
@@ -299,7 +289,6 @@ export default {
       this.formEnderecoAluno = { street: '', city: '', state: '', zipCode: '', country: 'Brasil' }
     },
 
-    // ================= MÉTODOS DE PROFESSORES =================
     async buscarProfessores() {
       try {
         const response = await axios.get(API_TEACHERS)
