@@ -22,6 +22,19 @@ Abra o terminal na raiz do projeto, acesse a pasta do front com o comando `cd si
 
 ---
 
+## 🗄️ Acesso ao Banco de Dados (H2 Console)
+
+Para inspecionar as tabelas e validar a persistência dos dados em tempo real, você pode acessar o cliente de banco de dados integrado:
+
+- **URL no Navegador:** http://localhost:8080/h2-console
+- **JDBC URL:** `jdbc:h2:mem:testdb`
+- **User Name:** `sa`
+- **Password:** *(deixar em branco)*
+
+> *Nota: O banco de dados roda em memória (H2), o que significa que as tabelas são reinicializadas a cada nova execução do backend.*
+
+---
+
 ## 🛠️ Detalhes Técnicos do Ecossistema
 
 - **Backend (Java & Spring Boot):** Arquitetura aplicando herança de entidades (classe base `Person` compartilhada por `Student` e `Professor`), persistência com Spring Data JPA e banco de dados H2 rodando em memória para o desenvolvimento.
@@ -30,4 +43,4 @@ Abra o terminal na raiz do projeto, acesse a pasta do front com o comando `cd si
 ---
 
 ## 👥 Desenvolvedor
-- **Matheus Henrique Gonçalves** - Engenharia de Software / Análise e Desenvolvimento de Sistemas (ADS).
+- **Matheus Henrique Gonçalves** - Engenharia de Software / Análise e Desenvolvimento de Sistemas (ADS)
