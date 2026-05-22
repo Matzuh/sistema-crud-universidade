@@ -23,8 +23,7 @@ public abstract class Person {
     private String phoneNumber;
     private String emailAddress;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private String status = "ACTIVE";
 
     @JsonManagedReference
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true)
