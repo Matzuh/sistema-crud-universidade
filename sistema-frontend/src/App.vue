@@ -34,6 +34,10 @@
                 <label class="form-label font-weight-bold">E-mail</label>
                 <input v-model="novoAluno.emailAddress" type="email" class="form-control" placeholder="Digite seu e-mail" required />
               </div>
+              <div class="mb-3">
+                <label class="form-label font-weight-bold">Telefone</label>
+                <input v-model="novoAluno.phoneNumber" type="text" class="form-control" placeholder="Ex: (19) 99999-9999" required />
+              </div>
 
               <hr />
               <h6 class="text-muted mb-3">📍 Endereço</h6>
@@ -79,13 +83,14 @@
                   <th>ID</th>
                   <th>Nome</th>
                   <th>E-mail</th>
+                  <th>Telefone</th>
                   <th>Localização</th>
                   <th class="text-center">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-if="alunos.length === 0">
-                  <td colspan="5" class="text-center text-muted p-4">
+                  <td colspan="6" class="text-center text-muted p-4">
                     Nenhum aluno cadastrado ou API fora do ar.
                   </td>
                 </tr>
@@ -93,6 +98,7 @@
                   <td><strong>#{{ aluno.id }}</strong></td>
                   <td>{{ aluno.name }}</td>
                   <td>{{ aluno.emailAddress || 'Não informado' }}</td>
+                  <td>{{ aluno.phoneNumber || 'Não informado' }}</td>
                   <td>{{ formatarEndereco(aluno.addresses) }}</td>
                   <td class="text-center">
                     <button @click="deletarAluno(aluno.id)" class="btn btn-danger btn-sm">
@@ -123,6 +129,10 @@
               <div class="mb-3">
                 <label class="form-label font-weight-bold">E-mail</label>
                 <input v-model="novoProfessor.emailAddress" type="email" class="form-control" placeholder="Digite seu e-mail" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label font-weight-bold">Telefone</label>
+                <input v-model="novoProfessor.phoneNumber" type="text" class="form-control" placeholder="Ex: (19) 99999-9999" required />
               </div>
               <div class="mb-3">
                 <label class="form-label font-weight-bold">Salário (R$)</label>
@@ -173,6 +183,7 @@
                   <th>ID</th>
                   <th>Nome</th>
                   <th>E-mail</th>
+                  <th>Telefone</th>
                   <th>Salário</th>
                   <th>Localização</th>
                   <th class="text-center">Ações</th>
@@ -180,7 +191,7 @@
                 </thead>
                 <tbody>
                 <tr v-if="professores.length === 0">
-                  <td colspan="6" class="text-center text-muted p-4">
+                  <td colspan="7" class="text-center text-muted p-4">
                     Nenhum professor cadastrado ou API fora do ar.
                   </td>
                 </tr>
@@ -188,6 +199,7 @@
                   <td><strong>#{{ professor.id }}</strong></td>
                   <td>{{ professor.name }}</td>
                   <td>{{ professor.emailAddress || 'Não informado' }}</td>
+                  <td>{{ professor.phoneNumber || 'Não informado' }}</td>
                   <td>R$ {{ Number(professor.salary).toFixed(2) }}</td>
                   <td>{{ formatarEndereco(professor.addresses) }}</td>
                   <td class="text-center">
@@ -221,6 +233,7 @@ export default {
       novoAluno: {
         name: '',
         emailAddress: '',
+        phoneNumber: '',
         addresses: []
       },
       formEnderecoAluno: {
@@ -233,6 +246,7 @@ export default {
       novoProfessor: {
         name: '',
         emailAddress: '',
+        phoneNumber: '',
         salary: '',
         addresses: []
       },
@@ -285,7 +299,7 @@ export default {
       }
     },
     resetarFormAluno() {
-      this.novoAluno = { name: '', emailAddress: '', addresses: [] }
+      this.novoAluno = { name: '', emailAddress: '', phoneNumber: '', addresses: [] }
       this.formEnderecoAluno = { street: '', city: '', state: '', zipCode: '', country: 'Brasil' }
     },
 
@@ -318,7 +332,7 @@ export default {
       }
     },
     resetarFormProfessor() {
-      this.novoProfessor = { name: '', emailAddress: '', salary: '', addresses: [] }
+      this.novoProfessor = { name: '', emailAddress: '', phoneNumber: '', salary: '', addresses: [] }
       this.formEnderecoProfessor = { street: '', city: '', state: '', zipCode: '', country: 'Brasil' }
     }
   }
